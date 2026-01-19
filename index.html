@@ -1,282 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRXC3E1PDR"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-LRXC3E1PDR');
     </script>
 
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airawat Mobility - Coming Soon</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            color: white;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .container {
-            padding: 20px;
-            max-width: 800px;
-        }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
-        .logo {
-            max-width: 200px;
-            margin-bottom: 30px;
-        }
-    </style>
+    <title>AIM Lab | IISc Bangalore</title>
+    <meta name="description" content="Artificial Intelligence and Cyber-Physical Systems Lab at IISc">
+    
+    <link rel="icon" href="assets/img/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <img src="hack/assets/iisc-logo.png" alt="IISc Logo" class="logo">
-        <h1>Airawat Mobility</h1>
-        <p>We're working on something exciting! Our platform is under construction and will be launching soon.</p>
-        <p>In the meantime, check out our Urban Vision Hackathon:</p>
-        <a href="/hack" class="btn">Visit Hackathon Page</a>
-    </div>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="assets/img/iisc-logo.png" alt="IISc Logo" class="nav-logo">
+                <a href="#home" class="lab-logo-text">
+                    <span class="brand-aim">AIM</span><span class="brand-lab">Lab</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#themes">Research</a>
+                <a href="#updates">News</a>
+                <a href="#projects">Projects</a>
+                <a href="#publications">Publications</a>
+                <a href="#team">Team</a>
+                <a href="#join">Join Us</a>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider">
+                            <div class="icons">
+                                <i class="ri-sun-line"></i>
+                                <i class="ri-moon-line"></i>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="ri-menu-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <canvas id="network-graph"></canvas>
+        <div class="hero-particles"></div>
+        <div class="hero-content">
+            <div class="hero-brand">
+                <span class="hero-aim">AIM</span><span class="hero-lab">Lab</span>
+            </div>
+            
+            <h1>Artificial Intelligence &<br>Cyber-Physical Systems Lab</h1>
+            <p class="hero-subtitle">Robert Bosch Centre for Cyber-Physical Systems, IISc Bangalore</p>
+            
+            <div class="typewriter-container">
+                <span class="prefix">Innovating in:</span>
+                <span id="typewriter-text" class="typewriter-text"></span>
+                <span class="typewriter-cursor">|</span>
+            </div>
+
+            <div class="hero-cta">
+                <a href="#themes" class="btn btn-primary">
+                    Explore Research <i class="ri-arrow-down-line"></i>
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number stat-number" data-count="15">0</div>
+                    <div class="hero-stat-label">Publications</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number stat-number" data-count="10">0</div>
+                    <div class="hero-stat-label">Projects</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number stat-number" data-count="20">0</div>
+                    <div class="hero-stat-label">Members</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <a href="#about">
+                <i class="ri-arrow-down-line"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission</h2>
+            </div>
+
+            <div class="about-wrapper">
+                <div class="about-image">
+                    <div class="interactive-image-container">
+                        <div class="dynamic-border"></div>
+                        <img src="assets/img/main-1.jpg" alt="AIM Lab" class="about-main-image" onerror="this.src='https://placehold.co/800x600?text=AIM+Lab+Research'">
+                        <div class="image-overlay">
+                            <div class="image-caption">
+                                <i class="ri-lightbulb-flash-line"></i>
+                                <span>Innovating for Sustainability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <div class="info-card main-info-card">
+                        <div class="info-card-content">
+                            <h3>Data-Driven Sustainability</h3>
+                            <p>We focus on the intersection of <strong>Machine Learning</strong>, <strong>Internet of Things (IoT)</strong>, and <strong>Sustainability</strong>. Our goal is to build data-driven solutions that solve real-world challenges in smart built environments.</p>
+                            
+                            <div class="tags">
+                                <span class="tag interactive-tag">Machine Learning</span>
+                                <span class="tag interactive-tag">IoT</span>
+                                <span class="tag interactive-tag">Smart Cities</span>
+                                <span class="tag interactive-tag">Sustainability</span>
+                                <span class="tag interactive-tag">Energy Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="themes" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research Areas</h2>
+            </div>
+
+            <div class="feature__wrapper">
+                <div class="feature__item">
+                    <div class="feature__item-teaser"><i class="fas fa-chart-line"></i></div>
+                    <div class="feature__item-body">
+                        <h2 class="archive__item-title">Data Science</h2>
+                        <div class="archive__item-excerpt"><p>Developing advanced machine learning and deep learning models for time-series analysis, prediction, and anomaly detection.</p></div>
+                    </div>
+                </div>
+                <div class="feature__item">
+                    <div class="feature__item-teaser"><i class="fas fa-bolt"></i></div>
+                    <div class="feature__item-body">
+                        <h2 class="archive__item-title">Energy Sustainability</h2>
+                        <div class="archive__item-excerpt"><p>Focusing on smart building energy efficiency, benchmarking, and fault detection and diagnosis (FDD) for HVAC systems.</p></div>
+                    </div>
+                </div>
+                <div class="feature__item">
+                    <div class="feature__item-teaser"><i class="fas fa-microchip"></i></div>
+                    <div class="feature__item-body">
+                        <h2 class="archive__item-title">IoT & CPS</h2>
+                        <div class="archive__item-excerpt"><p>Bridging the gap between physical sensors and digital analysis through Cyber-Physical Systems and Internet of Things.</p></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-subtitle">
+                <h3>Core Methodologies</h3>
+                <p>We primarily leverage <strong>smart meter time series</strong> and opportunistic data sources.</p>
+            </div>
+            <div class="methodology-grid">
+                <div class="method-card">
+                    <div class="method-icon"><img src="assets/img/EA.png" alt="Energy Monitoring" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><i class="fas fa-search-location fallback-icon" style="display:none;"></i></div>
+                    <h4>Energy Monitoring</h4>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon"><img src="assets/img/EB.png" alt="Energy Benchmarking" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><i class="fas fa-balance-scale fallback-icon" style="display:none;"></i></div>
+                    <h4>Energy Benchmarking</h4>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon"><img src="assets/img/PA.png" alt="Energy Prediction" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><i class="fas fa-chart-area fallback-icon" style="display:none;"></i></div>
+                    <h4>Energy Prediction</h4>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon"><img src="assets/img/AD.png" alt="Anomaly Detection" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><i class="fas fa-exclamation-triangle fallback-icon" style="display:none;"></i></div>
+                    <h4>Anomaly Detection</h4>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon"><img src="assets/img/fault.png" alt="FDD" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><i class="fas fa-tools fallback-icon" style="display:none;"></i></div>
+                    <h4>Fault Detection (FDD)</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="updates" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Updates</h2>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-progress">
+                    <div class="progress-bar" style="height: 0%"></div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item active">
+                        <div class="timeline-content">
+                            <div class="timeline-icon"><i class="ri-article-line"></i></div>
+                            <div class="timeline-date">June 2025</div>
+                            <h3>Paper Accepted at ACM e-Energy</h3>
+                            <p>Our paper "LEAD1.0 Dataset" has been accepted to the ACM e-Energy Workshop.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-icon"><i class="ri-book-open-line"></i></div>
+                            <div class="timeline-date">May 2025</div>
+                            <h3>Journal Acceptance</h3>
+                            <p>"BEEM: Data-driven Building Energy Benchmarking" accepted to Energy and Buildings journal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lab Life & Facilities</h2>
+            </div>
+            
+            <div class="modern-gallery">
+                <div class="gallery-container">
+                    <div class="gallery-main-view">
+                        <div class="gallery-slides">
+                            <div class="gallery-slide active">
+                                <img src="assets/img/UI-1.jpg" alt="Lab Facility" onerror="this.src='https://placehold.co/800x500?text=Research+Lab'">
+                                <div class="slide-caption">Advanced Computing Facility</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assets/img/UI-2.jpg" alt="Team Meeting" onerror="this.src='https://placehold.co/800x500?text=Team+Meeting'">
+                                <div class="slide-caption">Weekly Research Discussions</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="assets/img/UI-3.jpg" alt="Hardware Setup" onerror="this.src='https://placehold.co/800x500?text=IoT+Hardware'">
+                                <div class="slide-caption">IoT Sensor Deployments</div>
+                            </div>
+                        </div>
+                        
+                        <button class="gallery-nav gallery-prev"><i class="ri-arrow-left-s-line"></i></button>
+                        <button class="gallery-nav gallery-next"><i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Active Projects</h2>
+            </div>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="assets/img/anomaly.png" alt="LEAD">
+                    </div>
+                    <div class="project-content">
+                        <h3>Energy Anomaly Detection</h3>
+                        <p>Developing techniques and a Large-scale Anomaly Detection (LEAD) dataset.</p>
+                        <a href="#" class="btn-text">View Details <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="assets/img/infrared.png" alt="IRT">
+                    </div>
+                    <div class="project-content">
+                        <h3>Infrared Thermography</h3>
+                        <p>City-scale building diagnostics using remote thermography.</p>
+                        <a href="#" class="btn-text">View Details <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="assets/img/benchmarking.png" alt="Benchmarking">
+                    </div>
+                    <div class="project-content">
+                        <h3>Building Benchmarking</h3>
+                        <p>Accurate building energy benchmarking systems for India.</p>
+                        <a href="#" class="btn-text">View Details <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Accepted Publications</h2>
+            </div>
+
+            <div class="publications-wrapper">
+                
+                <div class="pub-card">
+                    <div class="pub-year">2025</div>
+                    <div class="pub-content">
+                        <h3 class="pub-title">Mix-BEATS: Mixer-enhanced Basis Expansion Analysis for Load Forecasting</h3>
+                        <div class="pub-meta">Anuj Kumar, Harish Kumar Saravanan, Shivam Dwivedi, Pandarasamy Arjunan. <br><em>Proceedings of the 16th ACM International Conference on Future and Sustainable Energy Systems</em></div>
+                        <details>
+                            <summary>Read Abstract</summary>
+                            <p>Short-term load forecasting (STLF) is crucial for energy management and integrating renewables, but traditional models often fail to generalize across diverse buildings. While Time Series Foundation Models (TSFM) offer potential, most are transformer-based, making them computationally heavy and unsuitable for edge deployment. We introduce Mix-BEATS, a lightweight and accurate model combining N-BEATS and TSMixer architectures for buildinglevel energy prediction. Adapting TSMixer originated from MLPMixer, originally designed for vision tasks using pure MLP blocks for patchwise and spatial mixing, we leverage its principles for temporal forecasting. Mix-BEATS is trained on hourly smart-meter data from 38,956 buildings and evaluated on a held-out set of 1,000 buildings using the NRMSE metric. We compare Mix-BEATS againststate-of-the-art TSFMs such as Lag-Llama, Moirai, Chronos, and Tiny Time Mixers in zero-shot and fine-tuned settings, as well as generic models including Autoformer, N-BEATS, TS-Mixer, etc., under domain-specific training and testing. In both comparisons, Mix-BEATS consistently outperforms the baselines, demonstrating robust generalization and efficiency for real-world STLF tasks. Code: https://github.com/AI-IoT-Lab/Mix-BEATS.</p>
+                        </details>
+                        <div class="pub-links">
+                            <a href="https://dl.acm.org/doi/full/10.1145/3679240.3734632" class="btn btn--primary btn--x-small">Link</a>
+                            <a href="https://dl.acm.org/doi/pdf/10.1145/3679240.3734632" class="btn btn--inverse btn--x-small"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-year">2025</div>
+                    <div class="pub-content">
+                        <h3 class="pub-title">Are Time Series Foundation models good for Energy Anomaly Detection?</h3>
+                        <div class="pub-meta">Basu Hela, Praveen Prasad Handigol, Pandarasamy Arjunan. <br><em>Proceedings of the 16th ACM International Conference on Future and Sustainable Energy Systems</em></div>
+                        <details>
+                            <summary>Read Abstract</summary>
+                            <p>Smart energy meters generate large volumes of fine-grained time series data that captures building’s energy consumption patterns. This data can be leveraged to detect anomalous energy consumption patterns and reduce energy waste in buildings. Traditional anomaly detection methods for smart meter data rely on statistical and machine learning techniques, which often struggle to model complex temporal patterns, require extensive feature engineering, and have poor scalability. Foundation models for time series, which are pretrained on massive volumes of time series data from diverse domains, have recently emerged as a versatile and scalable tool for time series analysis. They are capable of handling multiple tasks, including anomaly detection, and demonstrating superior performance compared to traditional models in various domains. Despite their potential for cross-domain applications, their applicability to the energy domain and their performance compared to traditional machine learning models remain largely unexplored.
+Therefore, in this paper, we analyze the applicability and performance of Time Series Foundation Models (TSFMs) for unsupervised energy anomaly detection. Specifically, we compare the performance of two widely used state-of-the-art TSFMs, TimeGPT and MOMENT, against existing anomaly detection techniques in the literature: (a) two statistical methods (Interquartile Range (IQR) and Modified Z-Score (mZ-Score)), (b) two unsupervised machine learning techniques (Isolation Forest and Local Outlier Factor), and (c) a deep learning-based technique, Variational Autoencoder (VAE). Our experimental results, conducted using the LEAD 1.0 dataset, which consists of annotated hourly energy readings of 200 buildings, show that MOMENT outperforms both traditional statistical methods and unsupervised machine learning methods. Our results reveal that fine-tuning of MOMENT marginally improves its performance. VAE trained from scratch surpasses TSFMs in performance despite having a smaller model size. We also analyze the trade-off between performance, scalability, and compute requirements of these models. Our analysis also provides new research directions for using TSFMs in the energy domain.</p>
+                        </details>
+                        <div class="pub-links">
+                            <a href="https://dl.acm.org/doi/full/10.1145/3679240.3734633" class="btn btn--primary btn--x-small">Link</a>
+                            <a href="https://dl.acm.org/doi/pdf/10.1145/3679240.3734633" class="btn btn--inverse btn--x-small"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-year">2025</div>
+                    <div class="pub-content">
+                        <h3 class="pub-title">MixForecast: Mixer-Enhanced Foundation Model for Load Forecasting</h3>
+                        <div class="pub-meta">Anuj Kumar, Harish Kumar Saravanan, Shivam Dwivedi, Pandarasamy Arjunan. <br><em>Proceedings of the 2nd International Workshop on Foundation Models for CPS & IoT</em></div>
+                        <details>
+                            <summary>Read Abstract</summary>
+                            <p>Short-term Load Forecasting (STLF) for buildings is essential for optimizing energy management and supporting renewable energy integration, but traditional models often struggle with generalization across diverse building profiles. While recent Time Series Foundation Models (TSFMs) show promise, they remain underexplored for STLF. In this paper, we introduce MixForecast, a novel TSFM for universal energy forecasting. The MixForecast architecture is based on the TSMixer block ensembling technique to provide accurate and robust load forecasting for smart meter time series. In particular, MixForecast is designed with fewer parameters approx 0.19M than existing TSFMs, making it efficient and suitable for deployment in individual buildings. We trained MixForecast using hourly energy data from 63K buildings and evaluated its performance on a test set of 1,000 commercial and residential buildings around the world. We compared MixForecast against pre-trained TSFMs such as Tiny Time Mixers, Lag-Llama, Moirai, and Chronos, in both zero-shot and fine-tuned settings, as well as against traditional models. The model demonstrates superior accuracy and adaptability, excelling in various building profiles. Its lightweight design, combined with strong forecasting performance, establishes MixForecast as a versatile and efficient model for STLF, advancing energy management while promoting sustainable energy practices.</p>
+                        </details>
+                        <div class="pub-links">
+                            <a href="#" class="btn btn--primary btn--x-small">Link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-content">
+                        <h3 class="pub-title">Analyzing the performance of time series foundation models for short-term load forecasting</h3>
+                        <div class="pub-meta">Harish Kumar Saravanan, Shivam Dwivedi, P Praveen, Pandarasamy Arjunan. <br><em>Proceedings of the 11th ACM International Conference on Systems for Energy-Efficient Buildings</em></div>
+                        <details>
+                            <summary>Read Abstract</summary>
+                            <p>The recent advancements in Time Series Foundation Models (TSFMs), which are pre-trained on vast time series corpus from diverse domains and designed to handle universal forecasting tasks without the need for task-specific training, present a promising domain-agnostic, one-size-fits-all solution. In this paper, we analyze the performance of four open-source TSFMs - Chronos, Lag-Llama, Moirai, and TimesFM - for short-term load forecasting (STLF) in both commercial and residential buildings. Specifically, we benchmark these models' zero-shot prediction capabilities, assessing their ability to perform STLF on unseen buildings, and compare them to state-of-the-art models. Our experimental results, conducted on a large-scale dataset of over 1,900 real-world residential and commercial buildings, reveal that the Chronos model achieves the lowest Normalized Root Mean Squared Error (NRMSE) compared to the contemporary models and demonstrates comparable performance with an existing pre-trained TSFM for the energy domain from the BuildingsBench platform.</p>
+                        </details>
+                        <div class="pub-links">
+                            <a href="#" class="btn btn--primary btn--x-small">Link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-year">2024</div>
+                    <div class="pub-content">
+                        <h3 class="pub-title">BD3: Building Defects Detection Dataset for Benchmarking Computer Vision Techniques</h3>
+                        <div class="pub-meta">Praveen Kottari, Pandarasamy Arjunan. <br><em>Proceedings of the 11th ACM International Conference on Systems for Energy-Efficient Buildings</em></div>
+                        <details>
+                            <summary>Read Abstract</summary>
+                            <p>The current manual visual inspection of built environments is time-consuming, labor-intensive, prone to errors, costly, and lacks scalability. To address these limitations, automated building inspection techniques have emerged in recent years, leveraging low-cost computer vision systems, drones and mobile robots. However, the practical implementation of these systems is hindered by the lack of robust and generalizable models trained on comprehensive defect image datasets. In this paper, we present BD3: Building Defects Detection Dataset, a comprehensive image dataset designed to benchmark computer vision techniques aimed at improving the robustness and generalizability of automated building inspection systems. The BD3 dataset contains 3,965 high-quality, manually collected, and annotated images. Unlike other datasets that primarily focus on crack and non-crack images, BD3 includes images of six distinct building defects (algae, major crack, minor crack, peeling, spalling, and stain), as well as images representing normal building conditions. We benchmarked the BD3 using five state-of-the-art computer vision models to classify defect and normal images. The experimental results indicate that the Vision Transformer (ViT) model achieved the highest F1-scores of 0.9342 and 0.9879 on the original and augmented datasets, respectively. The BD3 dataset and its accompanying reproducible codebase are publicly available for benchmarking other defect detection algorithms.</p>
+                        </details>
+                        <div class="pub-links">
+                            <a href="#" class="btn btn--primary btn--x-small">Link</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lab Members</h2>
+            </div>
+
+            <div class="team-category">
+                <h3>Lab Head</h3>
+                <div class="person-card">
+                    <div class="avatar-box">
+                        <img src="assets/img/speaker_pandarasamy.jpg" alt="Pandarasamy Arjunan" onerror="this.src='https://placehold.co/150x150?text=PA'">
+                    </div>
+                    <div class="person-info">
+                        <h3 class="person-name">Pandarasamy Arjunan</h3>
+                        <span class="person-role">Assistant Professor</span>
+                        <div class="person-focus">
+                            <strong>Research:</strong> CPS, Data Science, and Energy Sustainability
+                        </div>
+                        <div class="person-links">
+                            <a href="https://samy101.com/" class="btn-icon" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+                            <a href="mailto:samy@iisc.ac.in" class="btn-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="https://www.linkedin.com/in/pandarasamy-arjunan-5580a215" class="btn-icon" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://scholar.google.com/citations?user=6zG4VnQAAAAJ" class="btn-icon" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-group">
+                    <h3>PhD Students</h3>
+                    <div class="person-card">
+                        <div class="avatar-box">
+                            <img src="assets/img/Person.jpg" alt="Jane" onerror="this.src='https://placehold.co/150x150?text=Jane'">
+                        </div>
+                        <div class="person-info">
+                            <h3 class="person-name">Jane</h3>
+                            <span class="person-role">PhD Student</span>
+                            <div class="person-focus"><strong>Focus:</strong> Energy Anomaly Detection</div>
+                            <div class="person-links">
+                                <a href="mailto:Jane@iisc.ac.in" class="btn-icon"><i class="fas fa-envelope"></i></a>
+                                <a href="#" class="btn-icon"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-group">
+                    <h3>M.Tech Students</h3>
+                    <div class="person-card">
+                        <div class="avatar-box">
+                            <img src="assets/img/Person.jpg" alt="Jack" onerror="this.src='https://placehold.co/150x150?text=Jack'">
+                        </div>
+                        <div class="person-info">
+                            <h3 class="person-name">Jack</h3>
+                            <span class="person-role">M.Tech Student</span>
+                            <div class="person-focus"><strong>Focus:</strong> Sustainable Energy Solutions</div>
+                            <div class="person-links">
+                                <a href="mailto:Jack@iisc.ac.in" class="btn-icon"><i class="fas fa-envelope"></i></a>
+                                <a href="#" class="btn-icon"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-group">
+                    <h3>Project Staff</h3>
+                    <div class="person-card">
+                        <div class="avatar-box">
+                            <img src="assets/img/Person.jpg" alt="Peter" onerror="this.src='https://placehold.co/150x150?text=Peter'">
+                        </div>
+                        <div class="person-info">
+                            <h3 class="person-name">Peter</h3>
+                            <span class="person-role">Project Associate</span>
+                            <div class="person-focus"><strong>Focus:</strong> Energy Time-Series Modeling</div>
+                            <div class="person-links">
+                                <a href="mailto:Peter@iisc.ac.in" class="btn-icon"><i class="fas fa-envelope"></i></a>
+                                <a href="#" class="btn-icon"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Team</h2>
+            </div>
+            <div class="join-wrapper">
+                <div class="join-info">
+                    <p class="join-intro">We are actively looking for highly motivated candidates to join the <strong>AI-IOT Lab</strong> at RBCCPS, IISc.</p>
+                    <div class="opening-card">
+                        <h4><i class="fas fa-laptop-code"></i> Project Staff / Research Associates</h4>
+                        <p>We frequently look for project staff to assist with ongoing research.</p>
+                        <div class="requirements">
+                            <strong>Ideal candidates should have:</strong>
+                            <ul>
+                                <li>Strong programming skills in <strong>Python</strong></li>
+                                <li>A Bachelor's or Master's degree in CS, ECE, or related fields</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="opening-card">
+                        <h4><i class="fas fa-graduation-cap"></i> PhD & M.Tech Research</h4>
+                        <p>If you are already admitted to IISc (or planning to apply), we welcome you to discuss potential research topics.</p>
+                    </div>
+                    <div class="opening-card">
+                        <h4><i class="fas fa-flask"></i> Postdoctoral Fellows</h4>
+                        <p>We welcome applications from prospective postdoctoral fellows with a strong publication record in CPS or Energy Analytics.</p>
+                    </div>
+                </div>
+                <div class="apply-box">
+                    <h3><i class="fas fa-paper-plane"></i> How to Apply</h3>
+                    <p>If you are interested in working with us, please send an email to <strong>Prof. Pandarasamy Arjunan</strong>.</p>
+                    <div class="apply-steps">
+                        <strong>Please include:</strong>
+                        <ol>
+                            <li>Subject Line: <em>"Application for [Role] - [Your Name]"</em></li>
+                            <li>CV/Resume (Education & Skills)</li>
+                            <li>Portfolio (GitHub links)</li>
+                            <li>Brief Statement of Interest</li>
+                        </ol>
+                    </div>
+                    <a href="mailto:samy@iisc.ac.in" class="btn btn-primary full-width-btn">Apply via Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info-panel">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Visit Us</h3>
+                            <p>Room No: 215, IDR Building<br>
+                            Robert Bosch Centre for Cyber-Physical Systems (RBCCPS)<br>
+                            Indian Institute of Science (IISc), Bangalore - 560012, India.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p><a href="mailto:samy@iisc.ac.in">samy@iisc.ac.in</a></p>
+                        </div>
+                    </div>
+
+                    <div class="connect-links">
+                        <h3>Connect with Lab Head</h3>
+                        <div class="social-grid">
+                            <a href="https://scholar.google.com/citations?user=6zG4VnQAAAAJ" class="social-btn google"><i class="fas fa-graduation-cap"></i> Scholar</a>
+                            <a href="https://www.linkedin.com/in/pandarasamy-arjunan-5580a215" class="social-btn linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                            <a href="https://github.com/samy101" class="social-btn github"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://orcid.org/0000-0002-7697-3576" class="social-btn orcid"><i class="fab fa-orcid"></i> ORCID</a>
+                            <a href="https://www.researchgate.net/profile/Pandarasamy_Arjunan/" class="social-btn rg"><i class="fab fa-researchgate"></i> ResearchGate</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=Robert+Bosch+Centre+for+Cyber-Physical+Systems,+IISc,+Bangalore&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AIM-Lab</h3>
+                    <p>Artificial Intelligence & Cyber-Physical Systems Lab.</p>
+                    <p>RBCCPS, Indian Institute of Science.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Affiliations</h3>
+                    <div class="partner-logos-small">
+                        <img src="assets/img/iisc-logo.png" alt="IISc" title="IISc">
+                        <img src="assets/img/rbccps-logo.png" alt="RBCCPS" title="RBCCPS">
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <a href="#projects">Projects</a>
+                    <a href="#publications">Publications</a>
+                    <a href="#join">Careers</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2026 AIM-Lab, IISc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-</html> 
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contributors - Participating Teams</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .contributors-table-container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 24px;
-      box-shadow: 0 4px 32px 0 #0001;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    .contributors-title {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      letter-spacing: 1px;
-    }
-    .contributors-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: none;
-      font-size: 1.08rem;
-    }
-    .contributors-table th, .contributors-table td {
-      border: 2px solid #222;
-      padding: 0.4rem 0.5rem;
-      text-align: left;
-      vertical-align: middle;
-    }
-    .contributors-table th {
-      background: #f3f6fa;
-      font-weight: 700;
-      color: #222;
-      font-size: 1.1rem;
-    }
-    .contributors-table td {
-      background: #fff;
-    }
-    .contributors-table .team-name-cell {
-      font-weight: 600;
-      font-size: 1.08rem;
-      color: #222;
-      text-align: center;
-      background: #f8fafc;
-    }
-    .contributors-avatar {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #e0e7ef;
-      background: #fff;
-      display: block;
-      margin: 0 auto;
-    }
-    @media (max-width: 900px) {
-      .contributors-table-container {
-        padding: 0.5rem;
-      }
-      .contributors-title {
-        font-size: 2rem;
-      }
-      .contributors-table th, .contributors-table td {
-        padding: 0.3rem 0.2rem;
-        font-size: 0.98rem;
-      }
-    }
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: #181a1b;
-        color: #f3f6fa;
-      }
-      .contributors-table-container {
-        background: #23272b;
-        box-shadow: 0 4px 32px 0 #0008;
-      }
-      .contributors-table th {
-        background: #23272b;
-        color: #f3f6fa;
-      }
-      .contributors-table td {
-        background: #181a1b;
-        color: #f3f6fa;
-      }
-      .contributors-table .team-name-cell {
-        color: #f3f6fa;
-        background: #23272b;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="contributors-table-container">
-    <h1 class="contributors-title">Contributors: Participating Teams</h1>
-    <table class="contributors-table">
-      <thead>
-        <tr>
-          <th>Team Name</th>
-          <th>Image</th>
-          <th>Name</th>
-          <th>College Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td class="team-name-cell" rowspan="4">Alpha Coders</td>
-          <td><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Aarav Mehta" class="contributors-avatar" /></td>
-          <td>Aarav Mehta</td>
-          <td>IIT Bombay</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma" class="contributors-avatar" /></td>
-          <td>Priya Sharma</td>
-          <td>IIT Bombay</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rohan Gupta" class="contributors-avatar" /></td>
-          <td>Rohan Gupta</td>
-          <td>IIT Bombay</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/women/46.jpg" alt="Sneha Patel" class="contributors-avatar" /></td>
-          <td>Sneha Patel</td>
-          <td>IIT Bombay</td>
-        </tr>
-      
-        <tr>
-          <td class="team-name-cell" rowspan="4">Beta Builders</td>
-          <td><img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Karthik Raj" class="contributors-avatar" /></td>
-          <td>Karthik Raj</td>
-          <td>NIT Trichy</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/women/48.jpg" alt="Meera Nair" class="contributors-avatar" /></td>
-          <td>Meera Nair</td>
-          <td>NIT Trichy</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/men/49.jpg" alt="Siddharth Rao" class="contributors-avatar" /></td>
-          <td>Siddharth Rao</td>
-          <td>NIT Trichy</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Divya Singh" class="contributors-avatar" /></td>
-          <td>Divya Singh</td>
-          <td>NIT Trichy</td>
-        </tr>
-      
-        <tr>
-          <td class="team-name-cell" rowspan="4">Gamma Geeks</td>
-          <td><img src="https://randomuser.me/api/portraits/women/51.jpg" alt="Ananya Das" class="contributors-avatar" /></td>
-          <td>Ananya Das</td>
-          <td>BITS Pilani</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Vivek Kumar" class="contributors-avatar" /></td>
-          <td>Vivek Kumar</td>
-          <td>BITS Pilani</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/women/53.jpg" alt="Ritu Jain" class="contributors-avatar" /></td>
-          <td>Ritu Jain</td>
-          <td>BITS Pilani</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Sahil Verma" class="contributors-avatar" /></td>
-          <td>Sahil Verma</td>
-          <td>BITS Pilani</td>
-        </tr>
-        
-        <tr>
-          <td class="team-name-cell" rowspan="4">Delta Developers</td>
-          <td><img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Neha Joshi" class="contributors-avatar" /></td>
-          <td>Neha Joshi</td>
-          <td>VIT Vellore</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Arjun Singh" class="contributors-avatar" /></td>
-          <td>Arjun Singh</td>
-          <td>VIT Vellore</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/women/57.jpg" alt="Pooja Reddy" class="contributors-avatar" /></td>
-          <td>Pooja Reddy</td>
-          <td>VIT Vellore</td>
-        </tr>
-        <tr>
-          <td><img src="https://randomuser.me/api/portraits/men/58.jpg" alt="Rahul Menon" class="contributors-avatar" /></td>
-          <td>Rahul Menon</td>
-          <td>VIT Vellore</td>
-        </tr>
-       
-      </tbody>
-    </table>
-  </div>
-</body>
-</html> -->
+</html>
