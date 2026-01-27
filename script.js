@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     
     // --- 1. Typewriter Effect ---
     const typewriterTexts = [
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (!isDeleting && charIndex === currentText.length) {
-            typingSpeed = 2000;
+            typingSpeed = 2000; 
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(typeWriter, typingSpeed);
     }
     
-    typeWriter();
+    if(typewriterElement) typeWriter();
 
-    // --- 2. Stats Counter Animation (New) ---
+    // --- 2. Stats Counter Animation ---
     const counters = document.querySelectorAll('.stat-number');
     const animateCounters = () => {
         counters.forEach(counter => {
@@ -75,44 +75,85 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(statsSection);
     }
 
-    // --- 3. Gallery Logic (New) ---
+    // --- 3. Gallery Logic (Fixed) ---
     const slides = document.querySelectorAll('.gallery-slide');
+    const thumbs = document.querySelectorAll('.filmstrip-thumb');
     const nextBtn = document.querySelector('.gallery-next');
     const prevBtn = document.querySelector('.gallery-prev');
+    const progressBar = document.querySelector('.progress-bar');
+    const counterCurrent = document.querySelector('.current-slide');
+    const counterTotal = document.querySelector('.total-slides');
     let currentSlide = 0;
+    let autoPlayInterval;
 
     if(slides.length > 0) {
+        if(counterTotal) counterTotal.innerText = slides.length;
+
         function showSlide(index) {
+            // Loop functionality
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            currentSlide = index;
+
+            // Update Classes
             slides.forEach(s => s.classList.remove('active'));
-            slides[index].classList.add('active');
+            slides[currentSlide].classList.add('active');
+            
+            thumbs.forEach(t => t.classList.remove('active'));
+            if(thumbs[currentSlide]) thumbs[currentSlide].classList.add('active');
+
+            if(counterCurrent) counterCurrent.innerText = currentSlide + 1;
+
+            // Reset Progress Bar Animation
+            if(progressBar) {
+                progressBar.style.transition = 'none';
+                progressBar.style.width = '0%';
+                setTimeout(() => {
+                    progressBar.style.transition = 'width 4s linear'; // Matches interval
+                    progressBar.style.width = '100%';
+                }, 50);
+            }
         }
 
-        if(nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            });
+        function nextSlide() {
+            showSlide(currentSlide + 1);
         }
 
-        if(prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                showSlide(currentSlide);
-            });
+        function startAutoPlay() {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(nextSlide, 4000); // 4 Seconds per slide
         }
+
+        // Event Listeners
+        if(nextBtn) nextBtn.addEventListener('click', () => {
+            nextSlide();
+            startAutoPlay(); // Reset timer on interaction
+        });
+
+        if(prevBtn) prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+            startAutoPlay();
+        });
+
+        thumbs.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => {
+                showSlide(index);
+                startAutoPlay();
+            });
+        });
+
+        // Initialize
+        showSlide(0);
+        startAutoPlay();
     }
 
     // --- 4. Theme Switcher ---
     const themeSwitch = document.getElementById('checkbox');
     const currentTheme = localStorage.getItem('theme');
-
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') {
-            themeSwitch.checked = true;
-        }
+        if (currentTheme === 'dark' && themeSwitch) themeSwitch.checked = true;
     }
-
     if (themeSwitch) {
         themeSwitch.addEventListener('change', function(e) {
             if (e.target.checked) {
@@ -128,7 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- 5. Mobile Menu ---
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
-    
     if (menuBtn) {
         menuBtn.addEventListener('click', () => {
             if(navLinks.style.display === 'flex') {
@@ -143,11 +183,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 navLinks.style.background = getComputedStyle(document.documentElement).getPropertyValue('--nav-bg');
                 navLinks.style.padding = '20px';
                 navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                navLinks.style.zIndex = '999';
             }
         });
     }
 
-    // --- 6. Network Graph ---
+    // --- 6. Network Graph (Fixed Visibility) ---
     initNetworkGraph();
 });
 
@@ -157,18 +198,25 @@ function initNetworkGraph() {
     if (!canvas) return;
     
     const ctx = canvas.getContext('2d');
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+    
+    // Resize function
+    let width, height;
+    function resize() {
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
     
     const particles = [];
-    const particleCount = Math.min(50, Math.floor(width * height / 15000));
+    const particleCount = Math.min(80, Math.floor(width * height / 10000));
     
     class Particle {
         constructor() {
             this.x = Math.random() * width;
             this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
+            this.vx = (Math.random() - 0.5) * 1.5;
+            this.vy = (Math.random() - 0.5) * 1.5;
             this.size = Math.random() * 2 + 1;
         }
         update() {
@@ -178,7 +226,8 @@ function initNetworkGraph() {
             if (this.y < 0 || this.y > height) this.vy *= -1;
         }
         draw() {
-            ctx.fillStyle = 'rgba(66, 153, 225, 0.5)';
+            // FIX: Use White color so it shows on dark background
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)'; 
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
@@ -191,19 +240,17 @@ function initNetworkGraph() {
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
-        
         for (let i = 0; i < particles.length; i++) {
             particles[i].update();
             particles[i].draw();
-            
             for (let j = i; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
                 const dy = particles[i].y - particles[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < 150) {
+                if (distance < 120) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(66, 153, 225, ${0.1 - distance/1500})`;
+                    // FIX: Use Cyan/White lines
+                    ctx.strokeStyle = `rgba(100, 200, 255, ${0.15 - distance/1200})`; 
                     ctx.lineWidth = 1;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -213,11 +260,5 @@ function initNetworkGraph() {
         }
         requestAnimationFrame(animate);
     }
-    
     animate();
-    
-    window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-    });
 }
